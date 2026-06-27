@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS tipo_usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS usuario (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(150) NOT NULL,
+    email VARCHAR(200) NOT NULL UNIQUE,
+    tipo_usuario_id BIGINT NOT NULL,
+    FOREIGN KEY (tipo_usuario_id) REFERENCES tipo_usuario(id)
+);
+
+CREATE TABLE IF NOT EXISTS restaurante (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(200) NOT NULL,
+    endereco VARCHAR(500) NOT NULL,
+    tipo_cozinha VARCHAR(100) NOT NULL,
+    horario_funcionamento VARCHAR(200) NOT NULL,
+    dono_id BIGINT NOT NULL,
+    FOREIGN KEY (dono_id) REFERENCES usuario(id)
+);
+
+CREATE TABLE IF NOT EXISTS item_cardapio (
+    id SERIAL PRIMARY KEY,
+    restaurante_id BIGINT NOT NULL,
+    nome VARCHAR(200) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(10,2) NOT NULL,
+    disponivel_apenas_local BOOLEAN NOT NULL DEFAULT FALSE,
+    foto_path VARCHAR(500),
+    FOREIGN KEY (restaurante_id) REFERENCES restaurante(id)
+);

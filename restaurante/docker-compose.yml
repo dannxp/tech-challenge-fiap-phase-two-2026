@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: restaurante-db
+    environment:
+      POSTGRES_DB: restaurante
+      POSTGRES_USER: restaurante
+      POSTGRES_PASSWORD: restaurante123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - restaurante-network
+
+  app:
+    build: .
+    container_name: restaurante-app
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/restaurante
+      SPRING_DATASOURCE_USERNAME: restaurante
+      SPRING_DATASOURCE_PASSWORD: restaurante123
+    ports:
+      - "8080:8080"
+    networks:
+      - restaurante-network
+
+volumes:
+  postgres_data:
+
+networks:
+  restaurante-network:
+    driver: bridge

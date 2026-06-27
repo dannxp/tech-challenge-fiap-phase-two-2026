@@ -1,0 +1,338 @@
+{
+  "info": {
+    "name": "Sistema Restaurante - Fase 2",
+    "description": "Coleção para testar os endpoints da Fase 2 do Sistema de Gestão de Restaurantes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Tipos de Usuário",
+      "item": [
+        {
+          "name": "Criar Tipo Usuário - Dono",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Dono de Restaurante\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/tipos-usuario",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tipos-usuario"]
+            }
+          }
+        },
+        {
+          "name": "Criar Tipo Usuário - Cliente",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Cliente\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/tipos-usuario",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tipos-usuario"]
+            }
+          }
+        },
+        {
+          "name": "Listar Tipos de Usuário",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/tipos-usuario",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tipos-usuario"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Tipo Usuário por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/tipos-usuario/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tipos-usuario", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Tipo Usuário",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Dono de Restaurante VIP\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/tipos-usuario/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tipos-usuario", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Tipo Usuário",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/tipos-usuario/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "tipos-usuario", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuários",
+      "item": [
+        {
+          "name": "Criar Usuário - Dono",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João Silva\",\n  \"email\": \"joao@email.com\",\n  \"tipoUsuarioId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/usuarios",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios"]
+            }
+          }
+        },
+        {
+          "name": "Criar Usuário - Cliente",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Maria Souza\",\n  \"email\": \"maria@email.com\",\n  \"tipoUsuarioId\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/usuarios",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios"]
+            }
+          }
+        },
+        {
+          "name": "Listar Usuários",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/usuarios",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Usuário por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/usuarios/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Usuário",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"João Silva Atualizado\",\n  \"email\": \"joao.novo@email.com\",\n  \"tipoUsuarioId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/usuarios/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Usuário",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/usuarios/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Restaurantes",
+      "item": [
+        {
+          "name": "Criar Restaurante",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pizza do João\",\n  \"endereco\": \"Rua das Flores, 123\",\n  \"tipoCozinha\": \"Italiana\",\n  \"horarioFuncionamento\": \"18h - 23h\",\n  \"donoId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes"]
+            }
+          }
+        },
+        {
+          "name": "Listar Restaurantes",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Restaurante por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Restaurante",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pizza do João - Matriz\",\n  \"endereco\": \"Rua das Flores, 456\",\n  \"tipoCozinha\": \"Italiana\",\n  \"horarioFuncionamento\": \"12h - 23h\",\n  \"donoId\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Restaurante",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Itens do Cardápio",
+      "item": [
+        {
+          "name": "Criar Item Cardápio",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pizza Margherita\",\n  \"descricao\": \"Molho de tomate, mussarela e manjericão\",\n  \"preco\": 45.00,\n  \"disponivelApenasLocal\": true,\n  \"fotoPath\": \"/fotos/pizza-margherita.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes/1/itens",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes", "1", "itens"]
+            }
+          }
+        },
+        {
+          "name": "Listar Itens do Restaurante",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/restaurantes/1/itens",
+              "host": ["{{base_url}}"],
+              "path": ["api", "restaurantes", "1", "itens"]
+            }
+          }
+        },
+        {
+          "name": "Listar Todos os Itens",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/itens-cardapio",
+              "host": ["{{base_url}}"],
+              "path": ["api", "itens-cardapio"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Item por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/api/itens-cardapio/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "itens-cardapio", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Item Cardápio",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Pizza Margherita Grande\",\n  \"descricao\": \"Molho de tomate, mussarela, manjericão e parmesão\",\n  \"preco\": 55.00,\n  \"disponivelApenasLocal\": false,\n  \"fotoPath\": \"/fotos/pizza-margherita-grande.jpg\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/itens-cardapio/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "itens-cardapio", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar Item Cardápio",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/api/itens-cardapio/1",
+              "host": ["{{base_url}}"],
+              "path": ["api", "itens-cardapio", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
