@@ -4,16 +4,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("USUARIO")
+@Table("usuario")
 public class Usuario {
 
     @Id
     private Long id;
-    @Column("NOME")
+    @Column("nome")
     private String nome;
-    @Column("EMAIL")
+    @Column("email")
     private String email;
-    @Column("TIPO_USUARIO_ID")
+    @Column("tipo_usuario_id")
     private Long tipoUsuarioId;
 
     public Usuario() {}

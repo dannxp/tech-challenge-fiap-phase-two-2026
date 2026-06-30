@@ -4,12 +4,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("TIPO_USUARIO")
+@Table("tipo_usuario")
 public class TipoUsuario {
 
     @Id
     private Long id;
-    @Column("NOME")
+    @Column("nome")
     private String nome;
 
     public TipoUsuario() {}

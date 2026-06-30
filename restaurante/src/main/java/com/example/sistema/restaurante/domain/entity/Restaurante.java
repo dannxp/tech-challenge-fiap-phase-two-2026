@@ -4,20 +4,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("RESTAURANTE")
+@Table("restaurante")
 public class Restaurante {
 
     @Id
     private Long id;
-    @Column("NOME")
+    @Column("nome")
     private String nome;
-    @Column("ENDERECO")
+    @Column("endereco")
     private String endereco;
-    @Column("TIPO_COZINHA")
+    @Column("tipo_cozinha")
     private String tipoCozinha;
-    @Column("HORARIO_FUNCIONAMENTO")
+    @Column("horario_funcionamento")
     private String horarioFuncionamento;
-    @Column("DONO_ID")
+    @Column("dono_id")
     private Long donoId;
 
     public Restaurante() {}

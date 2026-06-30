@@ -5,22 +5,22 @@ import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 import java.math.BigDecimal;
 
-@Table("ITEM_CARDAPIO")
+@Table("item_cardapio")
 public class ItemCardapio {
 
     @Id
     private Long id;
-    @Column("RESTAURANTE_ID")
+    @Column("restaurante_id")
     private Long restauranteId;
-    @Column("NOME")
+    @Column("nome")
     private String nome;
-    @Column("DESCRICAO")
+    @Column("descricao")
     private String descricao;
-    @Column("PRECO")
+    @Column("preco")
     private BigDecimal preco;
-    @Column("DISPONIVEL_APENAS_LOCAL")
+    @Column("disponivel_apenas_local")
     private Boolean disponivelApenasLocal;
-    @Column("FOTO_PATH")
+    @Column("foto_path")
     private String fotoPath;
 
     public ItemCardapio() {}
